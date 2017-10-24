@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="entity.BookInfo" table="book_info">
+        <id name="bookId" type="java.lang.Integer">
+            <column name="bookId" />
+            <generator class="increment"/>
+        </id>
+        <property name="bookCode" type="java.lang.String">
+            <column name="bookCode" not-null="true" />
+        </property>
+        <property name="bookName" type="java.lang.String">
+            <column name="bookName" not-null="true" />
+        </property>
+        <property name="bookAuthor" type="java.lang.String">
+            <column name="bookAuthor" not-null="true" />
+        </property>
+        <property name="publishPress" type="java.lang.String">
+            <column name="publishPress" not-null="true" />
+        </property>
+        <property name="publishDate" type="java.util.Date">
+            <column name="publishDate"/>
+        </property>
+        <property name="borrowed" type="java.lang.Integer">
+            <column name="borrowed" not-null="true" />
+        </property>
+        <property name="createBy" type="java.lang.String">
+            <column name="createBy" not-null="true" />
+        </property>
+        <property name="creationTime" type="java.util.Date">
+            <column name="creationTime"  />
+        </property>
+         <property name="lastUpdatetime" type="java.util.Date">
+            <column name="lastUpdatetime" />
+        </property>
+        <many-to-one name="bookType" class="entity.BookType">
+        	<column name="bookType"/> 
+        </many-to-one>
+    </class>
+</hibernate-mapping>
